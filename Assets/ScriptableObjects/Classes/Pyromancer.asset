@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60eb66978a24e3943a1210b4aaeda4e4, type: 3}
   m_Name: Pyromancer
   m_EditorClassIdentifier: Assembly-CSharp::Class
+  classRole: 2
   classIcon: {fileID: 0}
-  atribute1:
+  attribute1:
     attributeName: Spellcaster
-  atribute2:
-    attributeName: Area of effect attacks
-  atribute3:
+  attribute2:
+    attributeName: Area of effect
+  attribute3:
     attributeName: Fire
