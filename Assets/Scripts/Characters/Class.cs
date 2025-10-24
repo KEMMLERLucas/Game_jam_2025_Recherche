@@ -4,7 +4,7 @@ using UnityEngine;
 public class Class : ScriptableObject
 {
     public Sprite classIcon;
-    public Attribute atribute1;
-    public Attribute atribute2;
-    public Attribute atribute3;
+    public Attribute attribute1;
+    public Attribute attribute2;
+    public Attribute attribute3;
 }
