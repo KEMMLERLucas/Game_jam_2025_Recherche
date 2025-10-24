@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Class
   classIcon: {fileID: 0}
   atribute1:
-    attributeName: 
+    attributeName: Spell caster
   atribute2:
-    attributeName: 
+    attributeName: Holy
   atribute3:
-    attributeName: 
+    attributeName: Support
