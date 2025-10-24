@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60eb66978a24e3943a1210b4aaeda4e4, type: 3}
-  m_Name: Monk
+  m_Name: Frostguard
   m_EditorClassIdentifier: Assembly-CSharp::Class
   classIcon: {fileID: 0}
   atribute1:
-    attributeName: 
+    attributeName: Melee
   atribute2:
-    attributeName: 
+    attributeName: Area of effect attacks
   atribute3:
-    attributeName: 
+    attributeName: Frost

@@ -16,6 +16,6 @@ MonoBehaviour:
   atribute1:
     attributeName: Melee
   atribute2:
-    attributeName: Sacre
+    attributeName: Holy
   atribute3:
     attributeName: Support

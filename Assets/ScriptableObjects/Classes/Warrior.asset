@@ -16,6 +16,6 @@ MonoBehaviour:
   atribute1:
     attributeName: Melee
   atribute2:
-    attributeName: 
+    attributeName: Crowd control
   atribute3:
-    attributeName: 
+    attributeName: Versatile
