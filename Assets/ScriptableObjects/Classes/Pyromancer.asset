@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pyromancer
   m_EditorClassIdentifier: Assembly-CSharp::Class
   classRole: 2
-  classIcon: {fileID: 0}
+  classIcon: {fileID: -666074856, guid: 6a3d6d7583a5bce49854c1617cbcdd5a, type: 3}
   attribute1: 1
   attribute2: 11
   attribute3: 3
