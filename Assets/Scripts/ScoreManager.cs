@@ -14,6 +14,8 @@ public class ScoreManager : MonoBehaviour
     Class selectedClass3;
     Class selectedClass4;
 
+    public int validAttributeScore = 50;
+
     bool validateDungeonAttribute1 = false;
     bool validateDungeonAttribute2 = false;
     bool validateDungeonAttribute3 = false;
@@ -30,7 +32,8 @@ public class ScoreManager : MonoBehaviour
 
    public void OnTeamSelectionResolution()
     {
-        
+        score = currentScore;
+
         // check currentDungeon attribute 1
         if (currentdungeon.attribute1 == selectedClass1.attribute1 
             || currentdungeon.attribute1 == selectedClass1.attribute2 
@@ -97,9 +100,6 @@ public class ScoreManager : MonoBehaviour
             validateDungeonAttribute3 |= true;
         else validateDungeonAttribute3 = false;
 
-
-
-        score = currentScore;
         scoreText.text = "score : " + score;
     }
 
