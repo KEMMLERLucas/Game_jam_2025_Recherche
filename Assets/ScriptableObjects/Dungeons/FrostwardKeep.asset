@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FrostwardKeep
   m_EditorClassIdentifier: Assembly-CSharp::Dungeon
   dungeonName: Frostward Keep
-  dungeonIcon: {fileID: 2396856195897197653, guid: 019cc4449f246e143bdc53093d0e3b3c, type: 3}
+  dungeonIcon: {fileID: -4582414783813514768, guid: 1404189d19def8a4eada21a199dc6334, type: 3}
   attribute1: 10
   attribute2: 12
   attribute3: 3
