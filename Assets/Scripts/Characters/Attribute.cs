@@ -1,15 +1,6 @@
 using System.ComponentModel;
 
 using UnityEngine;
-
-<<<<<<< Updated upstream
-[CreateAssetMenu(fileName = "NewAttribute", menuName = "Character/Attribute")]
-public class Attribute : ScriptableObject
-{
-    public string attributeName;     
-    public Sprite attributeIcon;      
-}
-=======
 public enum Attribute
 {
     Melee,
@@ -26,4 +17,3 @@ public enum Attribute
     AreaOfEffect,
     Agile
 }
->>>>>>> Stashed changes
