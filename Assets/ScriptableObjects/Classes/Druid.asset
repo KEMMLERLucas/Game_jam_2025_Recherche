@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Druid
   m_EditorClassIdentifier: Assembly-CSharp::Class
   classRole: 1
-  classIcon: {fileID: 0}
+  classIcon: {fileID: -1236821810, guid: 6a3d6d7583a5bce49854c1617cbcdd5a, type: 3}
   attribute1: 2
   attribute2: 11
   attribute3: 5

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Priest
   m_EditorClassIdentifier: Assembly-CSharp::Class
   classRole: 1
-  classIcon: {fileID: 0}
+  classIcon: {fileID: -1431908669, guid: 6a3d6d7583a5bce49854c1617cbcdd5a, type: 3}
   attribute1: 1
   attribute2: 10
   attribute3: 6
