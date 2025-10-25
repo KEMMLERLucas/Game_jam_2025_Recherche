@@ -10,7 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b99703d5fb4e0014daafdce13ed40878, type: 3}
-  m_Name: Dungeon2
+  m_Name: FiremawCaverns
   m_EditorClassIdentifier: Assembly-CSharp::Dungeon
-  dungeonIcon: {fileID: 0}
+  dungeonName: Firemaw caverns
+  dungeonIcon: {fileID: -1564940055502133555, guid: dc6d72e57b6c2a7499d949c8e27ac334, type: 3}
   dungeonDescription: 
+  attribute1: 10
+  attribute2: 10
+  attribute3: 10
+  attribute4: 10
