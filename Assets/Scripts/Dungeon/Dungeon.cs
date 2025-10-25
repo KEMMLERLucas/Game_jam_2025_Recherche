@@ -5,17 +5,8 @@ public class Dungeon : ScriptableObject
 {
     public string dungeonName;
     public Sprite dungeonIcon;
-    public string dungeonDescription;
-
-    [Range(0, 100)]
-    public int attribute1 = 10;
-
-    [Range(0, 100)]
-    public int attribute2 = 10;
-
-    [Range(0, 100)]
-    public int attribute3 = 10;
-
-    [Range(0, 100)]
-    public int attribute4 = 10;
+    //public string dungeonDescription;
+    public Attribute attribute1;
+    public Attribute attribute2;
+    public Attribute attribute3;
 }
