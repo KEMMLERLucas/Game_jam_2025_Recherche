@@ -10,16 +10,13 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public int validAttributeScore = 50;
 
-    bool attribute1valid = false;
-    bool attribute2valid = false;
-    bool attribute3valid = false;
     List<bool> attributeValidList = new List<bool>();
     List<Attribute> dungeonAttributeList = new List<Attribute>();
-    int score;
+    //int score;
     int currentScore;
     void Start()
     {
-        score = 0;
+        //score = 0;
 
     }
 
@@ -29,7 +26,6 @@ public class ScoreManager : MonoBehaviour
         dungeonAttributeList.Add(currentdungeon.attribute1);
         dungeonAttributeList.Add(currentdungeon.attribute2);
         dungeonAttributeList.Add(currentdungeon.attribute3);
-
         foreach (Attribute a in dungeonAttributeList)
         {
             foreach(Class c in group)
