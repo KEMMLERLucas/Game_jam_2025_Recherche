@@ -1,6 +1,6 @@
 using System.ComponentModel;
-
 using UnityEngine;
+
 public enum Attribute
 {
     Melee,
