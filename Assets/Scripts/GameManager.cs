@@ -36,19 +36,20 @@ public class GameManager : MonoBehaviour
     {
         availableClass1 = classes[Random.Range(0, classes.Count)];
         className.text = availableClass1.name;
-        //classImage.Image = availableClass1.Image;
+        classImage.sprite = availableClass1.classIcon;
 
         availableClass2 = classes[Random.Range(0, classes.Count)];
         className.text = availableClass1.name;
-        //classImage.Image = availableClass1.Image;
+        classImage.sprite = availableClass1.classIcon;
 
         availableClass3 = classes[Random.Range(0, classes.Count)];
         className.text = availableClass1.name;
-        //classImage.Image = availableClass1.Image;
+        classImage.sprite = availableClass1.classIcon;
 
         availableClass4 = classes[Random.Range(0, classes.Count)];
         className.text = availableClass1.name;
-        //classImage.Image = availableClass1.Image;
+        classImage.sprite = availableClass1.classIcon;
+
 
         Debug.Log("le personnage 1 est " + availableClass1.name);
     }
