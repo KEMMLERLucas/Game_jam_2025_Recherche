@@ -36,7 +36,7 @@ MonoBehaviour:
   - attribute: 10
     logo: {fileID: -824994701, guid: 6a3d6d7583a5bce49854c1617cbcdd5a, type: 3}
   - attribute: 11
-    logo: {fileID: -1654259660, guid: 6a3d6d7583a5bce49854c1617cbcdd5a, type: 3}
+    logo: {fileID: 793933481, guid: 6a3d6d7583a5bce49854c1617cbcdd5a, type: 3}
   - attribute: 12
     logo: {fileID: -1313524565, guid: 6a3d6d7583a5bce49854c1617cbcdd5a, type: 3}
   roleLogos:
