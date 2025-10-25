@@ -14,9 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Class
   classRole: 2
   classIcon: {fileID: 0}
-  attribute1:
-    attributeName: Melee
-  attribute2:
-    attributeName: Spellcaster
-  attribute3:
-    attributeName: Fire
+  attribute1: 0
+  attribute2: 1
+  attribute3: 3

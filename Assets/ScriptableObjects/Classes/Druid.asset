@@ -14,9 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Class
   classRole: 1
   classIcon: {fileID: 0}
-  attribute1:
-    attributeName: Versatile
-  attribute2:
-    attributeName: Area of effect
-  attribute3:
-    attributeName: Thunder
+  attribute1: 2
+  attribute2: 11
+  attribute3: 5

@@ -14,9 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Class
   classRole: 2
   classIcon: {fileID: 0}
-  attribute1:
-    attributeName: Versatile
-  attribute2:
-    attributeName: Crowd control
-  attribute3:
-    attributeName: Support
+  attribute1: 2
+  attribute2: 9
+  attribute3: 10

@@ -14,9 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Class
   classRole: 0
   classIcon: {fileID: 0}
-  attribute1:
-    attributeName: Melee
-  attribute2:
-    attributeName: Crowd control
-  attribute3:
-    attributeName: Versatile
+  attribute1: 0
+  attribute2: 9
+  attribute3: 2

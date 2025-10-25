@@ -14,9 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Class
   classRole: 0
   classIcon: {fileID: 0}
-  attribute1:
-    attributeName: Melee
-  attribute2:
-    attributeName: Support
-  attribute3:
-    attributeName: Holy
+  attribute1: 0
+  attribute2: 10
+  attribute3: 6

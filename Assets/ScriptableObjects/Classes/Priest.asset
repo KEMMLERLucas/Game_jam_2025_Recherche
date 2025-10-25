@@ -14,9 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Class
   classRole: 1
   classIcon: {fileID: 0}
-  attribute1:
-    attributeName: Spellcaster
-  attribute2:
-    attributeName: Support
-  attribute3:
-    attributeName: Holy
+  attribute1: 1
+  attribute2: 10
+  attribute3: 6

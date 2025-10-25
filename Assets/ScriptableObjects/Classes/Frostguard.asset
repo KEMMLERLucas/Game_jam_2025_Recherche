@@ -14,9 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Class
   classRole: 0
   classIcon: {fileID: 0}
-  attribute1:
-    attributeName: Melee
-  attribute2:
-    attributeName: Area of effect
-  attribute3:
-    attributeName: Frost
+  attribute1: 0
+  attribute2: 11
+  attribute3: 4
