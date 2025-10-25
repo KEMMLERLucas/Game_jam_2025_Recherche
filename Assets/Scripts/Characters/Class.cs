@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Class", menuName = "Scriptable Objects/Class")]
 public class Class : ScriptableObject
 {
+    public Role classRole;
     public Sprite classIcon;
     public Attribute attribute1;
     public Attribute attribute2;

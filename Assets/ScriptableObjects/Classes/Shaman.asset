@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60eb66978a24e3943a1210b4aaeda4e4, type: 3}
   m_Name: Shaman
   m_EditorClassIdentifier: Assembly-CSharp::Class
+  classRole: 1
   classIcon: {fileID: 0}
-  atribute1:
-    attributeName: Spell Caster
-  atribute2:
+  attribute1:
+    attributeName: Spellcaster
+  attribute2:
     attributeName: Support
-  atribute3:
+  attribute3:
     attributeName: Thunder

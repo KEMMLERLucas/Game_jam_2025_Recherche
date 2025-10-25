@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60eb66978a24e3943a1210b4aaeda4e4, type: 3}
   m_Name: Priest
   m_EditorClassIdentifier: Assembly-CSharp::Class
+  classRole: 1
   classIcon: {fileID: 0}
-  atribute1:
-    attributeName: Spell caster
-  atribute2:
-    attributeName: Holy
-  atribute3:
+  attribute1:
+    attributeName: Spellcaster
+  attribute2:
     attributeName: Support
+  attribute3:
+    attributeName: Holy
