@@ -89,6 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7abf98b2442799b4b9a9e024c8a69bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttributeDisplay
+  attributeIcon: {fileID: 8009488668919119632}
+  attributeName: {fileID: 0}
+  attributeConfig: {fileID: 11400000, guid: 7aa94507e5b4f064991fbb8f75a895b9, type: 2}
 --- !u!1 &7975266051682439949
 GameObject:
   m_ObjectHideFlags: 0

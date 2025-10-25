@@ -1,71 +1,118 @@
-using NUnit.Framework;
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public List<Class> classes;
-    public List<Dungeon> dungeons;
+    [Header("Data")]
+    public List<Class> classes; // Liste de tous les ScriptableObjects Class
+    public List<Dungeon> dungeons; // Liste de tous les ScriptableObjects Dungeon
 
-    [Header("Elements in Unity")]
-    public TextMeshProUGUI className;
-    public SpriteRenderer classImage;
-    public TextMeshProUGUI dungeonName;
-    public TextMeshProUGUI dungeonDescription;
-    public SpriteRenderer dungeonIcon;
-
-    public ScoreManager scoremanager;
+    [Header("Managers")]
+    public ScoreManager scoreManager;
     public TeamManager teamManager;
+    public ClassListManager classListManager; // Gestionnaire de la liste d'aventuriers
 
-    Class availableClass1;
-    Class availableClass2;
-    Class availableClass3;
-    Class availableClass4;
+    [Header("UI References")]
+    public DungeonDisplay dungeonDisplay; // Référence au script DungeonDisplay sur Quest
 
-    Dungeon currentDungeon;
+    [Header("Configuration")]
+    public AttributeRoleConfig attributeConfig; // Config pour les attributs
+
+    // Classes disponibles pour cette partie
+    private Class availableClass1;
+    private Class availableClass2;
+    private Class availableClass3;
+    private Class availableClass4;
+
+    // Donjon actuel
+    private Dungeon currentDungeon;
 
     void Start()
     {
-        LoadRandomClasses();
         LoadRandomDungeon();
+        LoadRandomClasses();
+    }
+
+    /// <summary>
+    /// Charge un donjon aléatoire et l'affiche
+    /// </summary>
+    public void LoadRandomDungeon()
+    {
+        if (dungeons == null || dungeons.Count == 0)
+        {
+            Debug.LogError("No dungeons available in GameManager!");
+            return;
+        }
+
+        // Sélectionne un donjon aléatoire
+        currentDungeon = dungeons[Random.Range(0, dungeons.Count)];
+
+        Debug.Log("Donjon chargé : " + currentDungeon);
+        Debug.Log("Donjon chargé : " + currentDungeon.attribute1);
+
+        // Met à jour l'affichage du donjon
+        if (dungeonDisplay != null)
+        {
+            dungeonDisplay.SetDungeon(currentDungeon);
+        }
+        else
+        {
+            Debug.LogError("DungeonDisplay not assigned in GameManager!");
+        }
     }
 
     public void LoadRandomClasses()
     {
+        if (classes == null || classes.Count == 0)
+        {
+            Debug.LogError("No classes available in GameManager!");
+            return;
+        }
+
+        // Génère 4 classes aléatoires
         availableClass1 = classes[Random.Range(0, classes.Count)];
-        className.text = availableClass1.name;
-        classImage.sprite = availableClass1.classIcon;
-
         availableClass2 = classes[Random.Range(0, classes.Count)];
-        className.text = availableClass1.name;
-        classImage.sprite = availableClass1.classIcon;
-
         availableClass3 = classes[Random.Range(0, classes.Count)];
-        className.text = availableClass1.name;
-        classImage.sprite = availableClass1.classIcon;
-
         availableClass4 = classes[Random.Range(0, classes.Count)];
-        className.text = availableClass1.name;
-        classImage.sprite = availableClass1.classIcon;
 
+        Debug.Log($"Classes chargées : {availableClass1.ClassName}, {availableClass2.ClassName}, {availableClass3.ClassName}, {availableClass4.ClassName}");
 
-        Debug.Log("le personnage 1 est " + availableClass1.name);
+        // Instancie les cartes dans la liste via le ClassListManager
+        if (classListManager != null)
+        {
+            classListManager.ClearList();
+            classListManager.AddCard(availableClass1);
+            classListManager.AddCard(availableClass2);
+            classListManager.AddCard(availableClass3);
+            classListManager.AddCard(availableClass4);
+        }
+        else
+        {
+            Debug.LogError("ClassListManager not assigned in GameManager!");
+        }
     }
 
-    public void LoadRandomDungeon()
-    {
-        currentDungeon = dungeons[Random.Range(0, dungeons.Count)];
-        dungeonName.text = currentDungeon.name;
-        //dungeonDescription.text = currentDungeon.text;
-        //dungeonIcon.Sprite = currentDungeon.icon;
-        Debug.Log ("le donjon est" +  currentDungeon.dungeonName);
-    }
-
+    /// <summary>
+    /// Valide la sélection d'équipe et calcule le score
+    /// </summary>
     public void ResolveTeamSelection()
     {
-
+    
     }
 
+    /// <summary>
+    /// Recharge un nouveau donjon (pour bouton "Next Dungeon")
+    /// </summary>
+    public void NextDungeon()
+    {
+        LoadRandomDungeon();
+    }
+
+    /// <summary>
+    /// Recharge de nouvelles classes (pour bouton "Refresh Classes")
+    /// </summary>
+    public void RefreshClasses()
+    {
+        LoadRandomClasses();
+    }
 }

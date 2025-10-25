@@ -19,4 +19,18 @@ public class AttributeRoleConfig : ScriptableObject
 
     public AttributeLogo[] attributeLogos;
     public RoleLogo[] roleLogos;
+
+    public Sprite GetLogoForAttribute(Attribute attribute)
+    {
+        foreach (var mapping in attributeLogos)
+        {
+            if (mapping.attribute == attribute)
+            {
+                return mapping.logo;
+            }
+        }
+
+        Debug.LogWarning($"No logo found for attribute: {attribute}");
+        return null;
+    }
 }

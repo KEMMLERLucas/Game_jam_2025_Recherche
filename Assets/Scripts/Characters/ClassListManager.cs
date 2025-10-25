@@ -2,23 +2,47 @@ using UnityEngine;
 
 public class ClassListManager : MonoBehaviour
 {
-    public Transform contentParent;        // Content du Scroll View
-    public GameObject adventurerCardPrefab; // Prefab de carte
-    public Class[] availableClasses;       // Liste des classes disponibles
+    [Header("Settings")]
+    public GameObject adventurerCardPrefab; 
+    public Transform contentParent; 
+    public AttributeRoleConfig attributeConfig; 
 
-    void Start()
+    public void AddCard(Class characterClass)
     {
-        PopulateList();
+        if (adventurerCardPrefab == null || contentParent == null)
+        {
+            Debug.LogError("AdventurerCardPrefab or ContentParent not assigned!");
+            return;
+        }
+
+      
+        GameObject newCard = Instantiate(adventurerCardPrefab, contentParent);
+        
+   
+        AdventurerDisplay display = newCard.GetComponent<AdventurerDisplay>();
+        if (display != null)
+        {
+            display.characterClass = characterClass;
+            display.attributeConfig = attributeConfig;
+            display.updateDisplay();
+        }
+        else
+        {
+            Debug.LogError("AdventurerDisplay component not found on prefab!");
+        }
     }
 
-    void PopulateList()
+    /// <summary>
+    /// Nettoie toutes les cartes de la liste
+    /// </summary>
+    public void ClearList()
     {
-        foreach (Class charClass in availableClasses)
+        if (contentParent == null)
+            return;
+
+        foreach (Transform child in contentParent)
         {
-            GameObject cardGO = Instantiate(adventurerCardPrefab, contentParent);
-            AdventurerDisplay card = cardGO.GetComponent<AdventurerDisplay>();
-            card.characterClass = charClass;
-            card.updateDisplay();
+            Destroy(child.gameObject);
         }
     }
 }

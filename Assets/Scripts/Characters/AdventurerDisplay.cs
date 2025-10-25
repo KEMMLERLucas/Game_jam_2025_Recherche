@@ -14,6 +14,9 @@ public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler,
     public Transform attributesList;
     public GameObject attributePrefab;
 
+    [Header("Configuration")]
+    public AttributeRoleConfig attributeConfig; // Référence au mapping des attributs
+
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
@@ -39,43 +42,68 @@ public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler,
     {
         if (characterClass == null) return;
         
+        // Affiche l'icône de classe
         if (classIcon != null)
         {
             classIcon.sprite = characterClass.classIcon;
         }
+
+        // Affiche le nom de classe
         if (characterClass.ClassName != null)
         {
             className.text = characterClass.ClassName;
         }
         
+        // Nettoie les anciens attributs
         foreach (Transform child in attributesList)
         {
             Destroy(child.gameObject);
         }
         
-        //DisplayAttribute(characterClass.attribute1);
-        //DisplayAttribute(characterClass.attribute2);
-        //DisplayAttribute(characterClass.attribute3);
+        // Affiche les nouveaux attributs
+        DisplayAttribute(characterClass.attribute1);
+        DisplayAttribute(characterClass.attribute2);
+        DisplayAttribute(characterClass.attribute3);
     }
 
-    /*void DisplayAttribute(Attribute attribute)
+    /// <summary>
+    /// Affiche un attribut (enum) dans la liste
+    /// </summary>
+    void DisplayAttribute(Attribute attribute)
     {
-        if (attribute == null) return;
+        if (attributePrefab == null || attributesList == null)
+        {
+            Debug.LogError("AttributePrefab or AttributesList not assigned!");
+            return;
+        }
 
+        // Instancie le prefab d'attribut
         GameObject attrGO = Instantiate(attributePrefab, attributesList);
         AttributeDisplay attrDisplay = attrGO.GetComponent<AttributeDisplay>();
 
         if (attrDisplay != null)
         {
-            attrDisplay.SetAttribute(attribute);
+            // Passe la config au display si elle existe
+            if (attributeConfig != null)
+            {
+                attrDisplay.SetAttribute(attribute, attributeConfig);
+            }
+            else
+            {
+                attrDisplay.SetAttribute(attribute);
+            }
         }
-    }*/
+        else
+        {
+            Debug.LogError("AttributeDisplay component not found on prefab!");
+        }
+    }
 
+    // Drag & Drop handlers
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("BEGIN DRAG: " + characterClass.ClassName);
         
-
         originalParent = transform.parent;
         originalSiblingIndex = transform.GetSiblingIndex();
 
@@ -88,7 +116,6 @@ public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
-
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
@@ -98,7 +125,6 @@ public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler,
         
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
-        
 
         if (transform.parent == canvas.transform)
         {

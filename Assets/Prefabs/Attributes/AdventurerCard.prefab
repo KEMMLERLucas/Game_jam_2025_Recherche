@@ -406,6 +406,7 @@ MonoBehaviour:
   className: {fileID: 6875462475991646202}
   attributesList: {fileID: 6220017003408373789}
   attributePrefab: {fileID: 6358274688185621594, guid: 9b7701a5cecda90458c4e4e841dde691, type: 3}
+  attributeConfig: {fileID: 11400000, guid: 7aa94507e5b4f064991fbb8f75a895b9, type: 2}
 --- !u!1 &8845697514431235723
 GameObject:
   m_ObjectHideFlags: 0
