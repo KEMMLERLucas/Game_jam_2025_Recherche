@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
-public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class AdventurerDisplay : MonoBehaviour
 {
     [Header("Information personnage")]
     public Class characterClass;
+
 
     [Header("UI")]
     public Image classIcon;
@@ -13,11 +14,12 @@ public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler,
     public Transform attributesList;
     public GameObject attributePrefab;
 
+
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    private Vector2 originalPosition; 
-
+    private Vector3 originalPosition;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -26,12 +28,10 @@ public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler,
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
     }
-
     void Start()
     {
         updateDisplay();
     }
-
     public void updateDisplay()
     {
         if (characterClass == null)
@@ -54,39 +54,23 @@ public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler,
         DisplayAttribute(characterClass.attribute2);
         DisplayAttribute(characterClass.attribute3);
     }
-
-    void DisplayAttribute(Attribute attribute)
+        void DisplayAttribute(Attribute attribute)
     {
         if (attribute == null) return;
 
         GameObject attrGO = Instantiate(attributePrefab, attributesList);
         AttributeDisplay attrDisplay = attrGO.GetComponent<AttributeDisplay>();
-
+        
         if (attrDisplay != null)
         {
             attrDisplay.SetAttribute(attribute);
         }
     }
+    
 
-    public void OnBeginDrag(PointerEventData eventData)
+    // Update is called once per frame
+    void Update()
     {
-        originalPosition = rectTransform.anchoredPosition;
-        canvasGroup.alpha = 0.7f;         
-        canvasGroup.blocksRaycasts = false;
-        Debug.Log("Drag started!"); 
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;
-        Debug.Log("Drag ended!");
-        // Pour ramener la carte à sa position d'origine
-        // rectTransform.anchoredPosition = originalPosition;
+        
     }
 }
