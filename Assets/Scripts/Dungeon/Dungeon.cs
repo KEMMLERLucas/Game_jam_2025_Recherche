@@ -9,4 +9,15 @@ public class Dungeon : ScriptableObject
     public Attribute attribute1;
     public Attribute attribute2;
     public Attribute attribute3;
+
+    public Dungeon GetDungeon()
+    {
+        return this;
+    }
+
+    public string GetDungeonName()
+    {
+        return dungeonName;
+    }
 }
+

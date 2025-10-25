@@ -5,23 +5,16 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public List<Class> selectedClasses;
+    public List<Class> group;
     public Dungeon currentdungeon;
     public TextMeshProUGUI scoreText;
-
-    Class selectedClass1;
-    Class selectedClass2;
-    Class selectedClass3;
-    Class selectedClass4;
-
     public int validAttributeScore = 50;
 
-    bool validateDungeonAttribute1 = false;
-    bool validateDungeonAttribute2 = false;
-    bool validateDungeonAttribute3 = false;
-
-
-
+    bool attribute1valid = false;
+    bool attribute2valid = false;
+    bool attribute3valid = false;
+    List<bool> attributeValidList = new List<bool>();
+    List<Attribute> dungeonAttributeList = new List<Attribute>();
     int score;
     int currentScore;
     void Start()
@@ -30,77 +23,59 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-   public void OnTeamSelectionResolution()
+   public void AttributeCheck(List<Class> group)
     {
-        score = currentScore;
+        int i = 0;
+        dungeonAttributeList.Add(currentdungeon.attribute1);
+        dungeonAttributeList.Add(currentdungeon.attribute2);
+        dungeonAttributeList.Add(currentdungeon.attribute3);
 
-        // check currentDungeon attribute 1
-        if (currentdungeon.attribute1 == selectedClass1.attribute1 
-            || currentdungeon.attribute1 == selectedClass1.attribute2 
-            || currentdungeon.attribute1 == selectedClass1.attribute3)
-            validateDungeonAttribute1 |= true;
-        
-        else if (currentdungeon.attribute1 == selectedClass2.attribute1
-            || currentdungeon.attribute1 == selectedClass2.attribute2
-            || currentdungeon.attribute1 == selectedClass2.attribute3)
-            validateDungeonAttribute1 |= true;
-
-        else if (currentdungeon.attribute1 == selectedClass3.attribute1
-            || currentdungeon.attribute1 == selectedClass3.attribute2
-            || currentdungeon.attribute1 == selectedClass3.attribute3)
-            validateDungeonAttribute1 |= true;
-
-        else if (currentdungeon.attribute1 == selectedClass4.attribute1
-            || currentdungeon.attribute1 == selectedClass4.attribute2
-            || currentdungeon.attribute1 == selectedClass4.attribute3)
-            validateDungeonAttribute1 |= true;
-        else validateDungeonAttribute1 = false;
-
-        // check currentDungeon attribute 2
-        if (currentdungeon.attribute2 == selectedClass1.attribute1
-            || currentdungeon.attribute2 == selectedClass1.attribute2
-            || currentdungeon.attribute2 == selectedClass1.attribute3)
-            validateDungeonAttribute2 |= true;
-
-        else if (currentdungeon.attribute2 == selectedClass2.attribute1
-            || currentdungeon.attribute2 == selectedClass2.attribute2
-            || currentdungeon.attribute2 == selectedClass2.attribute3)
-            validateDungeonAttribute2 |= true;
-
-        else if (currentdungeon.attribute2 == selectedClass3.attribute1
-            || currentdungeon.attribute2 == selectedClass3.attribute2
-            || currentdungeon.attribute2 == selectedClass3.attribute3)
-            validateDungeonAttribute2 |= true;
-
-        else if (currentdungeon.attribute2 == selectedClass4.attribute1
-            || currentdungeon.attribute2 == selectedClass4.attribute2
-            || currentdungeon.attribute2 == selectedClass4.attribute3)
-            validateDungeonAttribute2 |= true;
-        else validateDungeonAttribute2 = false;
-
-        // check currentDungeon attribute 3
-        if (currentdungeon.attribute3 == selectedClass1.attribute1
-            || currentdungeon.attribute3 == selectedClass1.attribute2
-            || currentdungeon.attribute3 == selectedClass1.attribute3)
-            validateDungeonAttribute3 |= true;
-
-        else if (currentdungeon.attribute3 == selectedClass2.attribute1
-            || currentdungeon.attribute3 == selectedClass2.attribute2
-            || currentdungeon.attribute3 == selectedClass2.attribute3)
-            validateDungeonAttribute3 |= true;
-
-        else if (currentdungeon.attribute3 == selectedClass3.attribute1
-            || currentdungeon.attribute3 == selectedClass3.attribute2
-            || currentdungeon.attribute3 == selectedClass3.attribute3)
-            validateDungeonAttribute3 |= true;
-
-        else if (currentdungeon.attribute3 == selectedClass4.attribute1
-            || currentdungeon.attribute3 == selectedClass4.attribute2
-            || currentdungeon.attribute3 == selectedClass4.attribute3)
-            validateDungeonAttribute3 |= true;
-        else validateDungeonAttribute3 = false;
-
-        scoreText.text = "score : " + score;
+        foreach (Attribute a in dungeonAttributeList)
+        {
+            foreach(Class c in group)
+            {
+                if(a == c.attribute1 || a == c.attribute2 || a == c.attribute3)
+                {
+                    attributeValidList[i] = true;
+                }
+            }
+        }
     }
 
+    public void groupComp()
+    {
+        bool tank = false;
+        bool healer = false;
+        int dpsCount = 0;
+        foreach (Class c in group)
+        {
+            if (c.classRole == Role.Tank)
+            {
+                tank = true;
+            }
+            else if (c.classRole == Role.Healer)
+            {
+                healer = true;
+            }
+            else if (c.classRole == Role.DPS)
+            {
+                dpsCount++;
+            }
+        }
+        if (tank && healer && dpsCount >= 3)
+        {
+            currentScore += 50;
+        }
+    }
+
+    public void CalculScore()
+    {
+        foreach (bool b in attributeValidList)
+        {
+            if (b)
+                currentScore += 20;
+        }
+        scoreText.text = "score : " + currentScore;
+
+    }
 }
