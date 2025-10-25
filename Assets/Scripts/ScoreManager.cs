@@ -42,7 +42,7 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void groupComp()
+    public void GroupComp(List<Class> group)
     {
         bool tank = false;
         bool healer = false;
