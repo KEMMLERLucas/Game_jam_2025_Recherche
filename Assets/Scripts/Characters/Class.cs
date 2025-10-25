@@ -7,4 +7,6 @@ public class Class : ScriptableObject
     public Attribute attribute1;
     public Attribute attribute2;
     public Attribute attribute3;
+
+    public string ClassName => name;
 }
