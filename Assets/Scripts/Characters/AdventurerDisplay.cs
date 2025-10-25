@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+
 public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Information personnage")]
@@ -16,7 +17,8 @@ public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler,
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    private Vector2 originalPosition; 
+    private Transform originalParent;
+    private int originalSiblingIndex;
 
     void Awake()
     {
@@ -24,6 +26,7 @@ public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler,
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
+        
         canvas = GetComponentInParent<Canvas>();
     }
 
@@ -34,10 +37,8 @@ public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void updateDisplay()
     {
-        if (characterClass == null)
-        {
-            return;
-        }
+        if (characterClass == null) return;
+        
         if (classIcon != null)
         {
             classIcon.sprite = characterClass.classIcon;
@@ -46,16 +47,18 @@ public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler,
         {
             className.text = characterClass.ClassName;
         }
+        
         foreach (Transform child in attributesList)
         {
             Destroy(child.gameObject);
         }
+        
         //DisplayAttribute(characterClass.attribute1);
         //DisplayAttribute(characterClass.attribute2);
         //DisplayAttribute(characterClass.attribute3);
     }
-    /*
-    void DisplayAttribute(Attribute attribute)
+
+    /*void DisplayAttribute(Attribute attribute)
     {
         if (attribute == null) return;
 
@@ -70,23 +73,39 @@ public class AdventurerDisplay : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        originalPosition = rectTransform.anchoredPosition;
-        canvasGroup.alpha = 0.7f;         
+        Debug.Log("BEGIN DRAG: " + characterClass.ClassName);
+        
+
+        originalParent = transform.parent;
+        originalSiblingIndex = transform.GetSiblingIndex();
+
+        transform.SetParent(canvas.transform, true);
+        transform.SetAsLastSibling(); 
+        
+        canvasGroup.alpha = 0.7f;
         canvasGroup.blocksRaycasts = false;
-        Debug.Log("Drag started!"); 
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        Debug.Log("END DRAG");
+        
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
-        Debug.Log("Drag ended!");
-        // Pour ramener la carte à sa position d'origine
-        // rectTransform.anchoredPosition = originalPosition;
+        
+
+        if (transform.parent == canvas.transform)
+        {
+            Debug.Log("No valid drop zone, returning to original position");
+            transform.SetParent(originalParent, false);
+            transform.SetSiblingIndex(originalSiblingIndex);
+            rectTransform.anchoredPosition = Vector2.zero;
+        }
     }
 }
