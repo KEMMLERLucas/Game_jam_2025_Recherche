@@ -4,7 +4,7 @@ using TMPro;
 
 public class AttributeDisplay : MonoBehaviour
 {
-    public Image attributeIcon;
+    /*public Image attributeIcon;
     public TextMeshProUGUI attributeName;
 
     public void SetAttribute(Attribute attribute)
@@ -18,5 +18,5 @@ public class AttributeDisplay : MonoBehaviour
         gameObject.SetActive(true);
         attributeName.text = attribute.attributeName;
         attributeIcon.sprite = attribute.attributeIcon;
-    }
+    }*/
 }
