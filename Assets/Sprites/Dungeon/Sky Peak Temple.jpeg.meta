@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8bd1892f6f4aad140a66f416700fd5c5
+guid: 1094a72fda676fd4998a8cc75ca1bff9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1611171579809873514
-    second: pixel_art_An_artwork_for_a_MMO (1)_0
+      213: -6996143143281759428
+    second: Sky Peak Temple_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixel_art_An_artwork_for_a_MMO (1)_0
+      name: Sky Peak Temple_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6eb5c6f3080c5610800000000000000
-      internalID: 1611171579809873514
+      spriteID: c3be7ead0e4b8ee90800000000000000
+      internalID: -6996143143281759428
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pixel_art_An_artwork_for_a_MMO (1)_0: 1611171579809873514
+      Sky Peak Temple_0: -6996143143281759428
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

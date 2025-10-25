@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dungeon
   dungeonName: Firemaw caverns
   dungeonIcon: {fileID: -1564940055502133555, guid: dc6d72e57b6c2a7499d949c8e27ac334, type: 3}
-  dungeonDescription: 
-  attribute1: 10
-  attribute2: 10
-  attribute3: 10
-  attribute4: 10
+  attribute1: 0
+  attribute2: 9
+  attribute3: 4
