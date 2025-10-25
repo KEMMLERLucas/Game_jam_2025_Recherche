@@ -10,7 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b99703d5fb4e0014daafdce13ed40878, type: 3}
-  m_Name: Dungeon2
+  m_Name: Dungeon
   m_EditorClassIdentifier: Assembly-CSharp::Dungeon
+  dungeonName: 
   dungeonIcon: {fileID: 0}
   dungeonDescription: 
+  attribute1: 10
+  attribute2: 10
+  attribute3: 10
+  attribute4: 10
