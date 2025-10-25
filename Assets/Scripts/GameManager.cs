@@ -15,6 +15,16 @@ public class GameManager : MonoBehaviour
     [Header("UI References")]
     public DungeonDisplay dungeonDisplay; // Référence au script DungeonDisplay sur Quest
 
+    [Header("Configuration")]
+    public AttributeRoleConfig attributeConfig; // Config pour les attributs
+
+    // Classes disponibles pour cette partie
+    private Class availableClass1;
+    private Class availableClass2;
+    private Class availableClass3;
+    private Class availableClass4;
+
+    // Donjon actuel
     public Dungeon currentDungeon;
 
     void Start()

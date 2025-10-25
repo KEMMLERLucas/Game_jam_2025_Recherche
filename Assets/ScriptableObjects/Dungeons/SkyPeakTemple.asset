@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkyPeakTemple
   m_EditorClassIdentifier: Assembly-CSharp::Dungeon
   dungeonName: Sky Peak Temple
-  dungeonIcon: {fileID: 1611171579809873514, guid: 8bd1892f6f4aad140a66f416700fd5c5, type: 3}
+  dungeonIcon: {fileID: -8545613427738797664, guid: 1b469044745fff74d9cf24bba65eeeae, type: 3}
   attribute1: 2
   attribute2: 11
   attribute3: 5
