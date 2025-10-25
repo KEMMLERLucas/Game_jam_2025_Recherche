@@ -1,8 +1,4 @@
 using System.ComponentModel;
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 using UnityEngine;
 
 public enum Attribute
@@ -20,8 +16,4 @@ public enum Attribute
     Support,
     AreaOfEffect,
     Agile
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
